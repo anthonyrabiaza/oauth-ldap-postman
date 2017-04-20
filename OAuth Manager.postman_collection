@@ -1,0 +1,198 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OAuth Manager",
+		"_postman_id": "335f14f9-619a-8f71-0fe5-f89670f10d2b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mgr - User isExist?",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/util/isExist/user?username={{user_name}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Email isExist?",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/util/isExist/email?email={{user_email}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Create New User",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/user/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstname\" : \"{{user_firstname}}\",\n\t\"lastname\" : \"{{user_lastname}}\",\n\t\"email\" : \"{{user_email}}\",\n\t\"username\" : \"{{user_name}}\",\n\t\"password\" : \"mule123\",             \n\t\"question\" : \"your own question\",\n\t\"answer\" : \"your own answer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Get Challenge Question",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/user/reset?username={{user_name}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Reset Password",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/user/reset",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"kiet.yap\",\n\t\"answer\" : \"your own answer\",\n\t\"password\" : \"pass2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Get Username",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/util/getUsername?email={{user_email}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Create PIN",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/api/access/pin?username={{user_name}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Get code",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/authorize?client_id={{client_id}}&client_secret={{client_secret}}&grant_type=authorization_code&scope=read write&response_type=code&redirect_uri=http://localhost:8081/redirect",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{user_name}}",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "{{user_password}}",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8081/redirect",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "scope",
+							"value": "read write",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "mgr - Get Tokens"
+			},
+			"response": []
+		},
+		{
+			"name": "mgr - Get Tokens",
+			"request": {
+				"url": "{{protocol_oauth_manager}}://{{url_oauth_manager}}/access_token?client_id={{client_id}}&client_secret={{client_secret}}&grant_type=authorization_code&state=6796881&redirect_uri=http://localhost:8081/redirect&code=RP3TER0Il1AKd-24oG0HmmC80tX4JfrvgErDgUdOArmGlT5JHKrBf1lQYwvCniqOgcLTQwomGE-d6gckt4iBmw",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

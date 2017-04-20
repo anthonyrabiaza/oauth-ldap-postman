@@ -1,0 +1,115 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OAuth Administrator",
+		"_postman_id": "dc4f5865-769e-54ed-76f3-3c336c394c76",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin - List All Users",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/user/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "admin - List All APIs",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/api/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "admin - List API Members",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/api?apiVersion={{api_version}}&apiName={{api_name}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "admin - List User Memberships",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/user?username={{user_name}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "admin - Add API",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/api",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apiName\" : \"{{api_name}}\",\n    \"apiVersion\" : \"{{api_version}}\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "admin - Add User to API",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/user?username={{user_name}}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apiName\" : \"{{api_name}}\",\n    \"apiVersion\" : \"{{api_version}}\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "admin - Remove User from API",
+			"request": {
+				"url": "{{protocol_oauth_administrator}}://{{url_oauth_administrator}}/api/admin/user?username={{user_name}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apiName\" : \"{{api_name}}\",\n    \"apiVersion\" : \"{{api_version}}\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

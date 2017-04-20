@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OAuth Dummy API",
+		"_postman_id": "66448160-b9c9-23bc-68de-d77ac8a64868",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/api/customer/1/name",
+			"request": {
+				"url": "{{url_api}}/api/customer/1/hello",
+				"method": "GET",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"description": ""
+					},
+					{
+						"key": "client_secret",
+						"value": "{{client_secret}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Default call"
+			},
+			"response": []
+		}
+	]
+}
